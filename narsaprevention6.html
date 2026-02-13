@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NARSA Prévention - Sécurité Routière</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Palette de couleurs de la maquette 1 */
+            --primary-blue: #1a5f9e;
+            --primary-dark-blue: #0d3a6b;
+            --accent-yellow: #ffc107;
+            --accent-dark-yellow: #e6ac00;
+            --light-yellow: #fff8e1;
+            --light-blue: #e8f4ff;
+            --gray-light: #f8f9fa;
+            --gray-medium: #e9ecef;
+            --gray-dark: #495057;
+            --white: #ffffff;
+            --text-dark: #212529;
+            --text-medium: #6c757d;
+            
+            /* Dégradés */
+            --gradient-blue: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark-blue) 100%);
+            --gradient-yellow: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-dark-yellow) 100%);
+            
+            /* Typographie */
+            --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            
+            /* Ombres */
+            --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --shadow-heavy: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo img{
+            width: 100px;
+            height: 90px;
+        }
+        
+        
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 16px;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+        
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent-yellow);
+            border-radius: 2px;
+        }
+        
+        .cta-button {
+            background: var(--gradient-yellow);
+            color: var(--text-dark);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(255, 193, 7, 0.3);
+        }
+        
+        /* Hero Section avec image de fond */
+        .hero-section {
+            position: relative;
+            height: 500px;
+            background: 
+                linear-gradient(rgba(26, 95, 158, 0.85), rgba(13, 58, 107, 0.9)),
+                url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 40px 0;
+        }
+        
+        .hero-title {
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-description {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            max-width: 700px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-yellow);
+            color: var(--text-dark);
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(255, 193, 7, 0.4);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        /* Stats Banner - Collé à la hero section */
+        .stats-banner {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow-heavy);
+            margin-top: -60px;
+            position: relative;
+            z-index: 10;
+            margin-bottom: 60px;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px 10px;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            background: var(--gradient-blue);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 16px;
+            color: var(--text-medium);
+            font-weight: 500;
+        }
+        
+        .stat-subtitle {
+            font-size: 14px;
+            color: var(--accent-yellow);
+            font-weight: 600;
+            margin-top: 5px;
+        }
+        
+        /* Section Dernières actualités */
+        .news-section {
+            margin-bottom: 60px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 32px;
+            color: var(--primary-dark-blue);
+            font-weight: 700;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: var(--gradient-yellow);
+            border-radius: 3px;
+        }
+        
+        .view-all {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+        
+        .view-all:hover {
+            color: var(--primary-dark-blue);
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .news-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s;
+            border: 1px solid var(--gray-medium);
+        }
+        
+        .news-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .news-image {
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .news-content {
+            padding: 25px;
+        }
+        
+        .news-category {
+            display: inline-block;
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .news-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-dark-blue);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        
+        .news-excerpt {
+            color: var(--text-medium);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .read-more {
+            color: var(--accent-yellow);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s;
+        }
+        
+        .read-more:hover {
+            gap: 12px;
+        }
+        
+        /* Section Accès rapide */
+        .quick-access-section {
+            margin-bottom: 80px;
+        }
+        
+        .access-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .access-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s;
+            border: 1px solid var(--gray-medium);
+        }
+        
+        .access-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--accent-yellow);
+        }
+        
+        .access-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--white);
+            font-size: 28px;
+        }
+        
+        .access-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-dark-blue);
+            margin-bottom: 15px;
+        }
+        
+        .access-description {
+            color: var(--text-medium);
+            line-height: 1.5;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--gradient-blue);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-description {
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--accent-yellow);
+            color: var(--primary-dark-blue);
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent-yellow);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: color 0.3s, padding-left 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-yellow);
+            padding-left: 5px;
+        }
+        
+        .footer-links i {
+            font-size: 14px;
+        }
+        
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .stats-container,
+            .news-grid,
+            .access-grid,
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .nav-links {
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px 0;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .hero-section {
+                height: auto;
+                padding: 60px 0;
+            }
+            
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .stats-banner {
+                margin-top: -40px;
+                padding: 20px;
+            }
+            
+            .stat-number {
+                font-size: 36px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .stats-container,
+            .news-grid,
+            .access-grid,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .section-title {
+                font-size: 26px;
+            }
+            
+            .news-card,
+            .access-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header avec navigation -->
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <img src="logoNarsa-removebg-preview.png" alt="logo">
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Accueil</a></li>
+                    <li><a href="#">Prévention</a></li>
+                    <li><a href="#">Dernières statistiques</a></li>
+                    <li><a href="#">Publications</a></li>
+                    <li><a href="#">Media</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                
+                <button class="cta-button">
+                    <i class="fas fa-chart-bar"></i>
+                    Consulter les statistiques
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section avec image -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Sécurité routière : informer pour sauver des vies</h1>
+                <p class="hero-description">Secteur de la sécurité routière et de l'environnement, le secteur de la sécurité routière est un élément clé de la sécurité des transports. Il est important de sensibiliser les citoyens à la sécurité routière et de promouvoir la pratique de la sécurité routière.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-newspaper"></i>
+                        Découvrir les articles
+                    </a>
+                    <a href="#" class="btn btn-secondary">
+                        <i class="fas fa-chart-line"></i>
+                        Voir les chiffres clés
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Banner collé à la hero section -->
+    <div class="container">
+        <div class="stats-banner">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">98 853</div>
+                    <div class="stat-label">Accidents / An</div>
+                    <div class="stat-subtitle">Aménagement</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">9.5%</div>
+                    <div class="stat-label">Taux mortalité routière</div>
+                    <div class="stat-subtitle">Année après année</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Campagnes par an</div>
+                    <div class="stat-subtitle">Année après année</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Section Dernières actualités -->
+    <section class="news-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Dernières actualités</h2>
+                <a href="#" class="view-all">
+                    Voir tout
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="news-grid">
+                <!-- Article 1 -->
+                <div class="news-card">
+                    <img src="https://images.unsplash.com/photo-1542224556-4f1dc7285ca3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Conducteur au volant" class="news-image">
+                    <div class="news-content">
+                        <span class="news-category">Conducteurs</span>
+                        <h3 class="news-title">Sécurité des conducteurs</h3>
+                        <p class="news-excerpt">Lorsque vous avez une activité routière, il est important de vous familiariser avec les règles d'hygiène et de sécurité en route.</p>
+                        <a href="#" class="read-more">
+                            En savoir plus
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Article 2 -->
+                <div class="news-card">
+                    <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Piétons traversant" class="news-image">
+                    <div class="news-content">
+                        <span class="news-category">Piétons</span>
+                        <h3 class="news-title">Prévention pour piétons</h3>
+                        <p class="news-excerpt">Les piétons sont souvent responsables de blessures graves. Les piétons doivent être informés sur les dangers liés à la route.</p>
+                        <a href="#" class="read-more">
+                            En savoir plus
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Article 3 -->
+                <div class="news-card">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Motard sur route" class="news-image">
+                    <div class="news-content">
+                        <span class="news-category">Motards</span>
+                        <h3 class="news-title">Protection des motards</h3>
+                        <p class="news-excerpt">Les motards sont des véhicules de protection contre les accidents. Ils doivent être informés sur les dangers liés à la route.</p>
+                        <a href="#" class="read-more">
+                            En savoir plus
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Accès rapide -->
+    <section class="quick-access-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Accès rapide</h2>
+            </div>
+            
+            <div class="access-grid">
+                <!-- Accès 1 -->
+                <div class="access-card">
+                    <div class="access-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="access-title">Accès rapide</h3>
+                    <p class="access-description">Les accès rapides sont essentiels pour garantir la sécurité des personnes sur le chemin de fer.</p>
+                </div>
+                
+                <!-- Accès 2 -->
+                <div class="access-card">
+                    <div class="access-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3 class="access-title">Préventions</h3>
+                    <p class="access-description">Les préventions sont indispensables pour éviter les accidents.</p>
+                </div>
+                
+                <!-- Accès 3 -->
+                <div class="access-card">
+                    <div class="access-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="access-title">Prise de décision</h3>
+                    <p class="access-description">La prise de décision est importante pour prendre des décisions éclairées.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Colonne 1 - Logo et description -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <i class="fas fa-shield-alt"></i>
+                        NARSA
+                    </div>
+                    <p class="footer-description">
+                        Organisation nationale dédiée à la prévention routière et à la sécurité des transports au Maroc.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Colonne 2 - Liens rapides -->
+                <div class="footer-column">
+                    <h3>Liens rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Accueil</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Prévention</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Statistiques</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Publications</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Media</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Colonne 3 - Ressources -->
+                <div class="footer-column">
+                    <h3>Ressources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Rapports annuels</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Guides de prévention</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Études de cas</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Documentation</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Formations</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Colonne 4 - Contact -->
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Rabat, Maroc</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +212 5 37 00 00 00</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> contact@narsa-prevention.ma</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Lun-Ven: 8h30-18h30</a></li>
+                        <li><a href="#"><i class="fas fa-globe"></i> www.narsa-prevention.ma</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 NARSA Prévention. Tous droits réservés. | Conception: Refonte UI/UX 2026</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Animation simple pour les cartes au scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation pour les éléments de statistiques
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            // Observer pour animer les éléments au scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            // Observer les cartes d'actualités et d'accès rapide
+            const cards = document.querySelectorAll('.news-card, .access-card');
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+            
+            // Animation pour les boutons CTA
+            const ctaButton = document.querySelector('.cta-button');
+            if (ctaButton) {
+                ctaButton.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-4px)';
+                });
+                
+                ctaButton.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

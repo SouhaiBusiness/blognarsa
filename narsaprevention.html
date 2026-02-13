@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>NARSA Prévention – Sécurité routière</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<style>
+:root{
+  --blue:#5B6BA8;
+  --yellow:#F8D759;
+  --light:#F3F5FB;
+  --text:#2B2B2B;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
+body{color:var(--text);background:#fff}
+a{text-decoration:none;color:inherit}
+
+/* ================= HEADER ================= */
+header{
+  position:sticky;top:0;z-index:100;
+  background:#fff;
+  box-shadow:0 10px 30px rgba(0,0,0,.05)
+}
+.nav{
+  max-width:1200px;margin:auto;
+  padding:18px 20px;
+  display:flex;align-items:center;justify-content:space-between
+}
+.logo{font-size:22px;font-weight:700;color:var(--blue)}
+nav ul{display:flex;gap:28px;list-style:none}
+nav ul li a{font-weight:500;color:#555}
+.nav .cta{
+  background:var(--yellow);
+  padding:10px 20px;
+  border-radius:999px;
+  font-weight:600
+}
+
+/* ================= HERO ================= */
+.hero{
+  background:linear-gradient(135deg,#EEF1FA,#fff);
+  padding:90px 20px 120px
+}
+.hero-container{
+  max-width:1200px;margin:auto;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:60px;align-items:center
+}
+.hero h1{
+  font-size:44px;
+  color:var(--blue);
+  line-height:1.2;
+  margin-bottom:20px
+}
+.hero p{
+  font-size:18px;
+  color:#555;
+  margin-bottom:30px
+}
+.hero-buttons{display:flex;gap:16px}
+.btn-primary{
+  background:var(--yellow);
+  padding:14px 26px;
+  border-radius:999px;
+  font-weight:600
+}
+.btn-outline{
+  border:2px solid var(--blue);
+  padding:12px 24px;
+  border-radius:999px;
+  color:var(--blue);
+  font-weight:600
+}
+.hero-image{
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow: 0 30px 50px rgba(0,0,0,.13);
+}
+.hero-image img{
+  width:100%;height:100%;
+  object-fit:cover
+}
+
+/* ================= STATS BAND ================= */
+.stats-band{
+  margin-top:-60px;
+  padding:20px
+}
+.stats{
+  max-width:1100px;margin:auto;
+  background:#fff;
+  border-radius:24px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  box-shadow:0 20px 50px rgba(0,0,0,.1)
+}
+.stat{
+  padding:30px;
+  display:flex;
+  gap:14px;
+  align-items:center;
+  justify-content:center
+}
+.stat-icon{
+  width:42px;height:42px;
+  background:var(--light);
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center
+}
+.stat h3{color:var(--blue);font-size:26px}
+.stat span{font-size:14px;color:#777}
+
+/* ================= PREVENTION ================= */
+.section{
+  padding:90px 20px
+}
+.section-title{text-align:center;margin-bottom:60px}
+.section-title h2{
+  font-size:34px;
+  color:var(--blue)
+}
+.cards{
+  max-width:1200px;margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px
+}
+.card{
+  background:#fff;
+  padding:30px;
+  border-radius:26px;
+  box-shadow:0 20px 40px rgba(0,0,0,.08);
+  transition:.3s
+}
+.card:hover{
+  transform:translateY(-10px)
+}
+.card img{
+  width:52px;margin-bottom:18px
+}
+.card h4{color:var(--blue);margin-bottom:8px}
+.card button{
+  margin-top:14px;
+  border:none;
+  background:var(--yellow);
+  padding:8px 18px;
+  border-radius:999px;
+  font-weight:600;
+  cursor:pointer
+}
+
+/* ================= FOOTER ================= */
+footer{
+  background:var(--blue);
+  color:#fff;
+  padding:70px 20px
+}
+.footer{
+  max-width:1200px;margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 2fr;
+  gap:40px
+}
+footer h5{margin-bottom:14px}
+footer a{display:block;margin-bottom:6px;opacity:.9;font-size:14px}
+
+.newsletter p{opacity:.9;margin-bottom:14px}
+.newsletter input{
+  width:100%;
+  padding:12px;
+  border-radius:999px;
+  border:none;
+  margin-bottom:12px
+}
+.newsletter button{
+  width:100%;
+  background:var(--yellow);
+  border:none;
+  padding:12px;
+  border-radius:999px;
+  font-weight:700;
+  cursor:pointer
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+  .hero-container{grid-template-columns:1fr}
+  .stats,.cards,.footer{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:500px){
+  .stats,.cards,.footer{grid-template-columns:1fr}
+  .hero h1{font-size:32px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">NARSA</div>
+    <nav>
+      <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">Prévention</a></li>
+        <li><a href="#">Statistiques</a></li>
+        <li><a href="#">Publications</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="cta">Consulter les statistiques</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-container">
+    <div>
+      <h1>Sécurité routière : informer pour sauver des vies</h1>
+      <p>Actualités, analyses et données pour renforcer la culture de la sécurité routière au Maroc.</p>
+      <div class="hero-buttons">
+        <a class="btn-primary">Explorer les articles</a>
+        <a class="btn-outline">Voir les chiffres clés</a>
+      </div>
+    </div>
+
+    <!-- 🔁 Tu peux remplacer cette image -->
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70" alt="Sécurité routière">
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-icon">🚗</div>
+      <div><h3>98 853</h3><span>Accidents / an</span></div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">⚠️</div>
+      <div><h3>9.5%</h3><span>Taux de mortalité</span></div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">📉</div>
+      <div><h3>-12%</h3><span>Évolution annuelle</span></div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">📢</div>
+      <div><h3>4</h3><span>Campagnes actives</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-title">
+    <h2>Actions de prévention</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/296/296216.png">
+      <h4>Conducteurs</h4>
+      <p>Bonnes pratiques pour une conduite responsable.</p>
+      <button>En savoir plus</button>
+    </div>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/3068/3068571.png">
+      <h4>Piétons</h4>
+      <p>Conseils pour circuler en toute sécurité.</p>
+      <button>En savoir plus</button>
+    </div>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/483/483361.png">
+      <h4>Motards</h4>
+      <p>Équipements et comportements essentiels.</p>
+      <button>En savoir plus</button>
+    </div>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1684/1684375.png">
+      <h4>Enfants</h4>
+      <p>Sensibilisation dès le plus jeune âge.</p>
+      <button>En savoir plus</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer">
+    <div>
+      <h5>NARSA</h5>
+      <a>À propos</a>
+      <a>Missions</a>
+      <a>Contact</a>
+    </div>
+    <div>
+      <h5>Ressources</h5>
+      <a>Rapports</a>
+      <a>Statistiques</a>
+    </div>
+    <div>
+      <h5>Médias</h5>
+      <a>Communiqués</a>
+      <a>Presse</a>
+    </div>
+    <div class="newsletter">
+      <h5>Newsletter</h5>
+      <p>Recevez les dernières campagnes et publications.</p>
+      <input type="email" placeholder="Votre email">
+      <button>S’abonner</button>
+    </div>
+  </div>
+</footer>
+
+<script>
+ScrollReveal().reveal('.hero h1,.hero p,.hero-buttons',{origin:'left',distance:'40px',delay:200});
+ScrollReveal().reveal('.hero-image',{origin:'right',distance:'40px',delay:300});
+ScrollReveal().reveal('.stat,.card',{interval:120,origin:'bottom',distance:'30px'});
+</script>
+
+</body>
+</html>

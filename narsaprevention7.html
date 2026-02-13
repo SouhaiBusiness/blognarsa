@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NARSA – Prévention</title>
+
+  <!-- ICONS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+    :root {
+      --blue-dark: #1c2f8b;
+      --blue: #3858d8;
+      --blue-light: #7f93d4;
+      --gray: #c2c5c9;
+      --yellow: #fae56e;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #fff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all .3s ease;
+    }
+
+    /* ================= NAVBAR ================= */
+    header {
+      background: var(--blue-dark);
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    nav a {
+      margin-left: 25px;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--yellow);
+    }
+
+    /* ================= HERO ================= */
+    .hero {
+      background: linear-gradient(120deg, var(--blue-dark), var(--blue));
+      color: white;
+      padding: 80px 5%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: var(--gray);
+      max-width: 520px;
+    }
+
+    /* ================= CATEGORIES ================= */
+    .categories {
+      padding: 70px 5%;
+      background: #f8f9ff;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,.08);
+      transition: .4s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--blue);
+      transform: translateY(100%);
+      transition: .4s;
+      z-index: 0;
+    }
+
+    .card:hover::before {
+      transform: translateY(0);
+    }
+
+    .card * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card i {
+      font-size: 38px;
+      color: var(--blue);
+      margin-bottom: 15px;
+      transition: .4s;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .card:hover i,
+    .card:hover h3,
+    .card:hover p {
+      color: white;
+    }
+
+    /* ================= ACTIONS ================= */
+    .actions {
+      padding: 80px 5%;
+      background: white;
+    }
+
+    .actions h2 {
+      color: var(--blue-dark);
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: var(--yellow);
+      color: var(--blue-dark);
+      border-radius: 30px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .btn:hover {
+      background: var(--blue);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* ================= NEWSLETTER ================= */
+    .newsletter {
+      background: var(--blue);
+      padding: 60px 5%;
+      color: white;
+      text-align: center;
+    }
+
+    .newsletter input {
+      padding: 12px;
+      width: 260px;
+      border-radius: 30px;
+      border: none;
+      outline: none;
+      margin-right: 10px;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: var(--blue-dark);
+      color: var(--gray);
+      padding: 50px 5%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
+
+    footer h4 {
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    footer i {
+      color: var(--yellow);
+      margin-right: 10px;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media(max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <strong>NARSA</strong>
+  <nav>
+    <a href="#">Accueil</a>
+    <a href="#">S'informer</a>
+    <a href="#">Éducation routière</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Informer pour mieux agir</h1>
+    <p>
+      Des services et ressources dédiés à chacun de nos partenaires
+      pour renforcer la culture de la sécurité routière.
+    </p>
+  </div>
+</section>
+
+<section class="categories">
+  <div class="card">
+    <i class="fa-solid fa-road"></i>
+    <h3>Éducation routière</h3>
+    <p>Actions pédagogiques et sensibilisation</p>
+  </div>
+
+  <div class="card">
+    <i class="fa-solid fa-people-group"></i>
+    <h3>ONG</h3>
+    <p>Partenariats associatifs</p>
+  </div>
+
+  <div class="card">
+    <i class="fa-solid fa-graduation-cap"></i>
+    <h3>Formation</h3>
+    <p>Professionnels & collectivités</p>
+  </div>
+
+  <div class="card">
+    <i class="fa-solid fa-photo-film"></i>
+    <h3>Médiathèque</h3>
+    <p>Supports et ressources multimédia</p>
+  </div>
+</section>
+
+<section class="actions">
+  <h2>Actions en région</h2>
+  <p>
+    La NARSA organise plusieurs actions dans les 12 régions du royaume
+    afin de renforcer la prévention routière.
+  </p>
+  <a class="btn" href="#">En savoir plus</a>
+</section>
+
+<section class="newsletter">
+  <h2>Restez informés</h2><br/>
+  <input type="email" placeholder="Adresse email">
+  <a class="btn" href="#">S'inscrire</a>
+</section>
+
+<footer>
+  <div>
+    <h4>Contact</h4>
+    <p><i class="fa-solid fa-location-dot"></i>Rabat – Hay Riad</p>
+    <p><i class="fa-solid fa-phone"></i>+212 5 37 71 22 80</p>
+  </div>
+
+  <div>
+    <h4>Partenaires</h4>
+    <p>Association</p>
+    <p>Collectivité</p>
+    <p>Entreprise</p>
+  </div>
+</footer>
+
+</body>
+</html>
